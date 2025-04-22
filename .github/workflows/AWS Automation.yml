@@ -27,9 +27,9 @@ jobs:
           aws-secret-key: ${{secret.AWS_SECRET_ACCESS_KEY}}
           aws-region: eu-west-2
        # Innitialize Terraform
-       - name: Initialize Terraform
-         run: Terraform init
+      - name: Initialize Terraform
+        run: Terraform init
 
        # Deploy Terraform
-       - name: Deploy Terraform
-         run: terrafrom apply -auto-approve
+      - name: Deploy Terraform
+        run: terraform apply -auto-approve
