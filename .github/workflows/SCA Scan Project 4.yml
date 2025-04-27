@@ -15,10 +15,10 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ baks7101 }}
-          password: ${{ dckr_pat_0aZdpoHPEr63FuDi_5Osu80lffg }}
+          username: ${{ secret.DOCKER_USERNAME }}
+          password: ${{ secret.DOCKER_PASSWORD }}
       - name: Pull Docker Image
-        run: docker pull baks7101/dockerhub:tagname
+        run: docker pull charliebanny/dockerhub:myfirstimagepush
       - name: Install Trivy
         run: |
           curl -sfL https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
@@ -35,7 +35,7 @@ jobs:
       with:
         scan-type: 'image'
         scanners: 'vuln'
-        image-ref: baks7101/dockerhub:tagname
+        image-ref: charliebanny/dockerhub:myfirstimagepush
         scan-ref: '.'
         hide-progress: false
         format: 'table'
