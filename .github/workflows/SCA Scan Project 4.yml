@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Pull Docker Image
-        run: docker pull baks7101/dockerhub:tagname
+        run: docker pull baks7101/dockerhub:test
 
       - name: Install Trivy
         run: |
@@ -47,7 +47,7 @@ jobs:
         with:
           scan-type: 'image'
           scanners: 'vuln'
-          image-ref: 'baks7101/dockerhub:tagname'
+          image-ref: 'baks7101/dockerhub:test'
           hide-progress: false
           format: 'table'
           ignore-unfixed: true
